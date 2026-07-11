@@ -4,7 +4,7 @@ AUTHOR = '陈小山 Hill Chen'
 SITENAME = "Hill's Blog"
 SITEDESCRIPTION = "小山的学习日记 HillChen's note book"
 
-SOCIAL = (('github', 'https://github.com/hillchen-3', 'github', 'fab'), ('rednote', 'https://xhslink.com/m/14i23XO5Xh', 'pen-fancy', 'fas'), ('linkedin', 'https://www.linkedin.com/in/hill-chen-062737421', 'linkedin', 'fab'),)
+SOCIAL = (('github', 'https://github.com/hillchen-3', 'github', 'fab'), ('rednote', 'https://xhslink.com/m/14i23XO5Xh', 'rednote', 'svg'), ('linkedin', 'https://www.linkedin.com/in/hill-chen-062737421', 'linkedin', 'fab'),)
 
 ABOUT_ME = '我是一名全栈开发者，热衷于探索新技术并通过写作分享知识。\n\n这个博客记录我的学习历程、技术教程，以及使用各种框架和工具的实践经验。\n\n打怪升级，成长之路，值得记录。'
 

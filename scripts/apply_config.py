@@ -26,7 +26,7 @@ def parse_template(filepath):
     # 社交链接
     ICON_MAP = {
         'github': ('github', 'fab'), 'twitter': ('twitter', 'fab'), 'linkedin': ('linkedin', 'fab'),
-        'rednote': ('pen-fancy', 'fas'), 'csdn': ('link', 'fas'), 'juejin': ('link', 'fas'),
+        'rednote': ('rednote', 'svg'), 'csdn': ('link', 'fas'), 'juejin': ('link', 'fas'),
         'zhihu': ('link', 'fas'), 'blog': ('blog', 'fas'), 'website': ('globe', 'fas'),
         'email': ('envelope', 'fas'), 'facebook': ('facebook', 'fab'), 'youtube': ('youtube', 'fab'),
         'instagram': ('instagram', 'fab'), 'stackoverflow': ('stack-overflow', 'fab'),
