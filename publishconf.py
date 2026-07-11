@@ -4,8 +4,7 @@ import sys
 sys.path.append(os.curdir)
 from pelicanconf import *
 
-_siteurl = os.environ.get('SITEURL', '')
-SITEURL = _siteurl if _siteurl else 'https://yourdomain.com'
+SITEURL = 'https://hillchen-3.github.io/blog'
 RELATIVE_URLS = False
 
 FEED_DOMAIN = SITEURL
