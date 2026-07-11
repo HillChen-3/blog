@@ -139,7 +139,7 @@
     }
     .scene-backdrop{position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,0.55),rgba(255,255,255,0.45),rgba(240,249,255,0.55));z-index:1;pointer-events:none}
     .dark .scene-backdrop{background:linear-gradient(135deg,rgba(15,23,42,0.6),rgba(15,23,42,0.5),rgba(12,18,38,0.6))}
-    @media(max-width:767px){.scene{display:none}}
+    @media(max-width:767px){.scene{--base-size:6}.cloud--one{transform:translate(-50%,-50%) translate3d(-20vmin,10vmin,10vmin)}.cloud--two{transform:translate(-50%,-50%) translate3d(15vmin,-8vmin,-15vmin)}.cloud--three{transform:translate(-50%,-50%) translate3d(25vmin,18vmin,-8vmin)}}
   </style>
 </head>
 <body class="flex flex-col min-h-screen">
@@ -221,12 +221,17 @@
 
     // 3D Scene parallax
     const BOUNDS = 50;
-    document.addEventListener('pointermove', e => {
-      const rx = ((e.clientY / window.innerHeight) * 2 - 1) * -BOUNDS;
-      const ry = ((e.clientX / window.innerWidth) * 2 - 1) * BOUNDS;
+    function updateScene(x, y) {
+      const rx = ((y / window.innerHeight) * 2 - 1) * -BOUNDS;
+      const ry = ((x / window.innerWidth) * 2 - 1) * BOUNDS;
       document.documentElement.style.setProperty('--rx', rx);
       document.documentElement.style.setProperty('--ry', ry);
-    });
+    }
+    document.addEventListener('pointermove', e => updateScene(e.clientX, e.clientY));
+    document.addEventListener('touchmove', e => {
+      const t = e.touches[0];
+      updateScene(t.clientX, t.clientY);
+    }, { passive: true });
   </script>
 </body>
 </html>
