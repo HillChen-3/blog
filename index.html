@@ -29,7 +29,7 @@
 
   <main class="flex-1">
 
-<!-- Hero Carousel -->
+<!-- Hero / Photo Wall -->
 <section class="relative min-h-screen flex items-center overflow-hidden bg-gradient-to-br from-primary-50 via-white to-blue-50 dark:from-slate-900 dark:via-slate-900 dark:to-primary-950">
   <div class="relative w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-0">
     <div class="flex flex-col md:flex-row items-center md:items-start gap-10 md:gap-16">
@@ -64,54 +64,33 @@
           </a>
         </div>
       </div>
-      <!-- Carousel Column -->
-      <div class="flex-1 w-full max-w-md mx-auto md:mx-0">
-        <div class="relative">
-          <div class="carousel-slide  transition-all duration-700 ease-in-out" data-index="0">
-            <a href="https://hillchen-3.github.io/blog/2025/12/getting-started-with-fastapi/" class="block text-center no-underline">
-              <div class="w-56 h-56 md:w-64 md:h-64 mx-auto rounded-2xl overflow-hidden shadow-2xl shadow-primary-200/60 dark:shadow-primary-900/40 ring-4 ring-white/50 dark:ring-slate-700/50">
-                <img src="https://hillchen-3.github.io/blog/images/fastapi-cover.jpg" alt="Getting Started with FastAPI: A Modern Python Web Framework" class="w-full h-full object-cover">
-              </div>
-              <h2 class="mt-6 text-xl md:text-2xl font-bold text-slate-900 dark:text-white">Getting Started with FastAPI: A Modern Python Web Framework</h2>
-              <div class="mt-3 flex items-center justify-center gap-3">
-                <span class="text-xs font-medium text-primary-600 dark:text-primary-400 bg-primary-50 dark:bg-primary-900/30 px-3 py-1 rounded-full">Python</span>
-                <time class="text-xs text-slate-500 dark:text-slate-400">2025-12-15</time>
-              </div>
-              <p class="mt-4 text-sm text-slate-500 dark:text-slate-400 line-clamp-2 max-w-sm mx-auto">FastAPI is a modern, fast (high-performance) web framework for building APIs with Python 3.7+...</p>
-            </a>
-          </div>
-          <div class="carousel-slide opacity-0 pointer-events-none absolute inset-0 transition-all duration-700 ease-in-out" data-index="1">
-            <a href="https://hillchen-3.github.io/blog/2025/12/understanding-tailwind-css/" class="block text-center no-underline">
-              <div class="w-56 h-56 md:w-64 md:h-64 mx-auto rounded-2xl overflow-hidden shadow-2xl shadow-primary-200/60 dark:shadow-primary-900/40 ring-4 ring-white/50 dark:ring-slate-700/50">
-                <img src="https://hillchen-3.github.io/blog/images/tailwind-cover.jpg" alt="Understanding Tailwind CSS: Utility-First Styling" class="w-full h-full object-cover">
-              </div>
-              <h2 class="mt-6 text-xl md:text-2xl font-bold text-slate-900 dark:text-white">Understanding Tailwind CSS: Utility-First Styling</h2>
-              <div class="mt-3 flex items-center justify-center gap-3">
-                <span class="text-xs font-medium text-primary-600 dark:text-primary-400 bg-primary-50 dark:bg-primary-900/30 px-3 py-1 rounded-full">CSS</span>
-                <time class="text-xs text-slate-500 dark:text-slate-400">2025-12-10</time>
-              </div>
-              <p class="mt-4 text-sm text-slate-500 dark:text-slate-400 line-clamp-2 max-w-sm mx-auto">Tailwind CSS is a utility-first CSS framework that has revolutionized the way developers style...</p>
-            </a>
-          </div>
-          <div class="carousel-slide opacity-0 pointer-events-none absolute inset-0 transition-all duration-700 ease-in-out" data-index="2">
-            <a href="https://hillchen-3.github.io/blog/2025/12/django-rest-framework-guide/" class="block text-center no-underline">
-              <div class="w-56 h-56 md:w-64 md:h-64 mx-auto rounded-2xl overflow-hidden shadow-2xl shadow-primary-200/60 dark:shadow-primary-900/40 ring-4 ring-white/50 dark:ring-slate-700/50">
-                <img src="https://hillchen-3.github.io/blog/images/drf-cover.jpg" alt="Building RESTful APIs with Django REST Framework" class="w-full h-full object-cover">
-              </div>
-              <h2 class="mt-6 text-xl md:text-2xl font-bold text-slate-900 dark:text-white">Building RESTful APIs with Django REST Framework</h2>
-              <div class="mt-3 flex items-center justify-center gap-3">
-                <span class="text-xs font-medium text-primary-600 dark:text-primary-400 bg-primary-50 dark:bg-primary-900/30 px-3 py-1 rounded-full">Python</span>
-                <time class="text-xs text-slate-500 dark:text-slate-400">2025-12-05</time>
-              </div>
-              <p class="mt-4 text-sm text-slate-500 dark:text-slate-400 line-clamp-2 max-w-sm mx-auto">Django REST Framework (DRF) is a powerful and flexible toolkit for building Web APIs in Django....</p>
-            </a>
-          </div>
-        </div>
-        <!-- Carousel Controls -->
-        <div class="mt-8 flex items-center justify-center gap-3">
-          <button class="carousel-dot w-2.5 h-2.5 rounded-full transition-all duration-300 bg-primary-500 w-6" data-index="0" aria-label="Slide 1"></button>
-          <button class="carousel-dot w-2.5 h-2.5 rounded-full transition-all duration-300 bg-slate-300 dark:bg-slate-600" data-index="1" aria-label="Slide 2"></button>
-          <button class="carousel-dot w-2.5 h-2.5 rounded-full transition-all duration-300 bg-slate-300 dark:bg-slate-600" data-index="2" aria-label="Slide 3"></button>
+      <!-- Photo Wall -->
+      <div class="flex-1 w-full max-w-lg mx-auto md:mx-0">
+        <div class="grid grid-cols-2 gap-3 md:gap-4">
+          <a href="https://hillchen-3.github.io/blog/2025/12/getting-started-with-fastapi/" class="group relative overflow-hidden rounded-2xl shadow-lg shadow-slate-200/50 dark:shadow-slate-900/40 " style="aspect-ratio: 1 / 1;">
+            <img src="https://hillchen-3.github.io/blog/images/fastapi-cover.jpg" alt="Getting Started with FastAPI: A Modern Python Web Framework" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent"></div>
+            <div class="absolute bottom-0 left-0 right-0 p-3 md:p-4">
+              <span class="inline-block text-[10px] font-medium text-white/80 bg-white/20 backdrop-blur-sm px-2 py-0.5 rounded-full mb-1.5">Python</span>
+              <h3 class="text-sm md:text-base font-semibold text-white leading-tight line-clamp-2">Getting Started with FastAPI: A Modern Python Web Framework</h3>
+            </div>
+          </a>
+          <a href="https://hillchen-3.github.io/blog/2025/12/understanding-tailwind-css/" class="group relative overflow-hidden rounded-2xl shadow-lg shadow-slate-200/50 dark:shadow-slate-900/40 " style="aspect-ratio: 1 / 1;">
+            <img src="https://hillchen-3.github.io/blog/images/tailwind-cover.jpg" alt="Understanding Tailwind CSS: Utility-First Styling" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent"></div>
+            <div class="absolute bottom-0 left-0 right-0 p-3 md:p-4">
+              <span class="inline-block text-[10px] font-medium text-white/80 bg-white/20 backdrop-blur-sm px-2 py-0.5 rounded-full mb-1.5">CSS</span>
+              <h3 class="text-sm md:text-base font-semibold text-white leading-tight line-clamp-2">Understanding Tailwind CSS: Utility-First Styling</h3>
+            </div>
+          </a>
+          <a href="https://hillchen-3.github.io/blog/2025/12/django-rest-framework-guide/" class="group relative overflow-hidden rounded-2xl shadow-lg shadow-slate-200/50 dark:shadow-slate-900/40 col-span-2" style="aspect-ratio: 1 / 1;">
+            <img src="https://hillchen-3.github.io/blog/images/drf-cover.jpg" alt="Building RESTful APIs with Django REST Framework" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent"></div>
+            <div class="absolute bottom-0 left-0 right-0 p-3 md:p-4">
+              <span class="inline-block text-[10px] font-medium text-white/80 bg-white/20 backdrop-blur-sm px-2 py-0.5 rounded-full mb-1.5">Python</span>
+              <h3 class="text-sm md:text-base font-semibold text-white leading-tight line-clamp-2">Building RESTful APIs with Django REST Framework</h3>
+            </div>
+          </a>
         </div>
       </div>
     </div>
@@ -375,45 +354,6 @@
       html.classList.toggle('dark');
       localStorage.setItem('dark', html.classList.contains('dark'));
     });
-
-    // Hero carousel
-    (function() {
-      const slides = document.querySelectorAll('.carousel-slide');
-      const dots = document.querySelectorAll('.carousel-dot');
-      if (!slides.length) return;
-      let current = 0;
-      let timer;
-      function goTo(index) {
-        slides.forEach((el, i) => {
-          if (i === index) {
-            el.classList.remove('opacity-0', 'pointer-events-none', 'absolute', 'inset-0');
-          } else {
-            el.classList.add('opacity-0', 'pointer-events-none', 'absolute', 'inset-0');
-          }
-        });
-        dots.forEach((el, i) => {
-          if (i === index) {
-            el.classList.add('bg-primary-500', 'w-6');
-            el.classList.remove('bg-slate-300', 'dark:bg-slate-600');
-          } else {
-            el.classList.remove('bg-primary-500', 'w-6');
-            el.classList.add('bg-slate-300', 'dark:bg-slate-600');
-          }
-        });
-        current = index;
-      }
-      function next() { goTo((current + 1) % slides.length); }
-      function startAuto() { timer = setInterval(next, 4000); }
-      function stopAuto() { clearInterval(timer); }
-      dots.forEach(dot => {
-        dot.addEventListener('click', () => {
-          stopAuto();
-          goTo(parseInt(dot.dataset.index));
-          startAuto();
-        });
-      });
-      startAuto();
-    })();
   </script>
 </body>
 </html>

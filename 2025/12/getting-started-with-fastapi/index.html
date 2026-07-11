@@ -168,45 +168,6 @@
       html.classList.toggle('dark');
       localStorage.setItem('dark', html.classList.contains('dark'));
     });
-
-    // Hero carousel
-    (function() {
-      const slides = document.querySelectorAll('.carousel-slide');
-      const dots = document.querySelectorAll('.carousel-dot');
-      if (!slides.length) return;
-      let current = 0;
-      let timer;
-      function goTo(index) {
-        slides.forEach((el, i) => {
-          if (i === index) {
-            el.classList.remove('opacity-0', 'pointer-events-none', 'absolute', 'inset-0');
-          } else {
-            el.classList.add('opacity-0', 'pointer-events-none', 'absolute', 'inset-0');
-          }
-        });
-        dots.forEach((el, i) => {
-          if (i === index) {
-            el.classList.add('bg-primary-500', 'w-6');
-            el.classList.remove('bg-slate-300', 'dark:bg-slate-600');
-          } else {
-            el.classList.remove('bg-primary-500', 'w-6');
-            el.classList.add('bg-slate-300', 'dark:bg-slate-600');
-          }
-        });
-        current = index;
-      }
-      function next() { goTo((current + 1) % slides.length); }
-      function startAuto() { timer = setInterval(next, 4000); }
-      function stopAuto() { clearInterval(timer); }
-      dots.forEach(dot => {
-        dot.addEventListener('click', () => {
-          stopAuto();
-          goTo(parseInt(dot.dataset.index));
-          startAuto();
-        });
-      });
-      startAuto();
-    })();
   </script>
 </body>
 </html>
