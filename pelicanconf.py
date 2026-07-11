@@ -1,7 +1,18 @@
-AUTHOR = 'Your Name'
-AUTHOR_LOGO = 'Y'
-SITENAME = 'Your Blog Name'
-SITEDESCRIPTION = 'A personal blog about coding, technology, and learning notes.'
+# ============================================================
+# 用户个人信息 - 由 scripts/apply_config.py 从 docs/ 模板生成
+# 修改个人信息请编辑 docs/个人信息配置模板.md，然后运行:
+#   python scripts/apply_config.py
+# ============================================================
+import os as _os
+_site_config = _os.path.join(_os.path.dirname(__file__), 'site_config.py')
+if _os.path.exists(_site_config):
+    exec(compile(open(_site_config).read(), _site_config, 'exec'))
+
+try:
+    AUTHOR_LOGO = AUTHOR[0]
+except NameError:
+    AUTHOR_LOGO = 'B'
+
 SITEURL = ''
 SITELOGO = ''
 
@@ -31,24 +42,6 @@ MENUITEMS = (
     ('🏷️ Tags', '/tags.html'),
     ('📁 Categories', '/categories.html'),
 )
-
-# Social links (Font Awesome icon names)
-SOCIAL = (
-    ('github', 'https://github.com/'),
-    ('twitter', 'https://twitter.com/'),
-    ('linkedin', 'https://linkedin.com/in/'),
-)
-
-# Homepage settings
-ABOUT_ME = '''I'm a passionate software developer who loves exploring new technologies and sharing knowledge through writing.
-
-This blog is where I document my learning journey, share technical tutorials, and record my experiences with various frameworks and tools.
-
-When I'm not coding, you can find me reading tech books, contributing to open source, or experimenting with new side projects.'''
-
-TECH_STACK = ('Python', 'JavaScript', 'TypeScript', 'React', 'FastAPI', 'Django', 'Tailwind CSS', 'Docker', 'PostgreSQL', 'Git', 'Linux')
-
-COPYRIGHT_YEAR = '2025'
 
 # Default pagination
 DEFAULT_PAGINATION = 6

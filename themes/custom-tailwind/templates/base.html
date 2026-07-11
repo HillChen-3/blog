@@ -40,9 +40,9 @@
         </p>
         <div class="flex items-center gap-4">
           {% if SOCIAL %}
-          {% for name, link in SOCIAL %}
+          {% for name, link, icon in SOCIAL %}
           <a href="{{ link }}" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors text-lg" aria-label="{{ name }}">
-            <i class="fab fa-{{ name }}"></i>
+            <i class="{% if icon == 'envelope' %}fas{% else %}fab{% endif %} fa-{{ icon }}"></i>
           </a>
           {% endfor %}
           {% endif %}
