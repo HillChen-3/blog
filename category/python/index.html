@@ -8,19 +8,6 @@
   <link rel="stylesheet" href="https://hillchen-3.github.io/blog/theme/css/main.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="alternate" type="application/atom+xml" title="Hill's Blog - Atom Feed" href="feeds/all.atom.xml">
-  <style>
-    @keyframes marquee {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
-    }
-    .marquee-track {
-      animation: marquee 30s linear infinite;
-      width: max-content;
-    }
-    .marquee-track:hover {
-      animation-play-state: paused;
-    }
-  </style>
 </head>
 <body class="flex flex-col min-h-screen">
   <header class="sticky top-0 z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-lg border-b border-slate-200/50 dark:border-slate-700/50">
@@ -102,6 +89,7 @@
   </footer>
 
   <script>
+    // Dark mode toggle
     const darkToggle = document.getElementById('darkToggle');
     const html = document.documentElement;
     if (localStorage.getItem('dark') === 'true' || (!localStorage.getItem('dark') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
@@ -111,6 +99,45 @@
       html.classList.toggle('dark');
       localStorage.setItem('dark', html.classList.contains('dark'));
     });
+
+    // Hero carousel
+    (function() {
+      const slides = document.querySelectorAll('.carousel-slide');
+      const dots = document.querySelectorAll('.carousel-dot');
+      if (!slides.length) return;
+      let current = 0;
+      let timer;
+      function goTo(index) {
+        slides.forEach((el, i) => {
+          if (i === index) {
+            el.classList.remove('opacity-0', 'pointer-events-none', 'absolute', 'inset-0');
+          } else {
+            el.classList.add('opacity-0', 'pointer-events-none', 'absolute', 'inset-0');
+          }
+        });
+        dots.forEach((el, i) => {
+          if (i === index) {
+            el.classList.add('bg-primary-500', 'w-6');
+            el.classList.remove('bg-slate-300', 'dark:bg-slate-600');
+          } else {
+            el.classList.remove('bg-primary-500', 'w-6');
+            el.classList.add('bg-slate-300', 'dark:bg-slate-600');
+          }
+        });
+        current = index;
+      }
+      function next() { goTo((current + 1) % slides.length); }
+      function startAuto() { timer = setInterval(next, 4000); }
+      function stopAuto() { clearInterval(timer); }
+      dots.forEach(dot => {
+        dot.addEventListener('click', () => {
+          stopAuto();
+          goTo(parseInt(dot.dataset.index));
+          startAuto();
+        });
+      });
+      startAuto();
+    })();
   </script>
 </body>
 </html>

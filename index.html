@@ -8,19 +8,6 @@
   <link rel="stylesheet" href="https://hillchen-3.github.io/blog/theme/css/main.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="alternate" type="application/atom+xml" title="Hill's Blog - Atom Feed" href="feeds/all.atom.xml">
-  <style>
-    @keyframes marquee {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
-    }
-    .marquee-track {
-      animation: marquee 30s linear infinite;
-      width: max-content;
-    }
-    .marquee-track:hover {
-      animation-play-state: paused;
-    }
-  </style>
 </head>
 <body class="flex flex-col min-h-screen">
   <header class="sticky top-0 z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-lg border-b border-slate-200/50 dark:border-slate-700/50">
@@ -42,81 +29,90 @@
 
   <main class="flex-1">
 
-<!-- Hero Section -->
-<section class="relative overflow-hidden">
-  <div class="absolute inset-0 bg-gradient-to-br from-primary-50 via-white to-blue-50 dark:from-slate-900 dark:via-slate-900 dark:to-primary-950"></div>
-  <div class="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32">
-    <div class="flex flex-col md:flex-row items-center gap-10">
-      <div class="flex-shrink-0">
-        <div class="w-28 h-28 md:w-36 md:h-36 rounded-full bg-gradient-to-br from-primary-400 to-primary-600 p-1 shadow-xl shadow-primary-200/50 dark:shadow-primary-900/30">
+<!-- Hero Carousel -->
+<section class="relative min-h-screen flex items-center overflow-hidden bg-gradient-to-br from-primary-50 via-white to-blue-50 dark:from-slate-900 dark:via-slate-900 dark:to-primary-950">
+  <div class="relative w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-0">
+    <div class="flex flex-col md:flex-row items-center md:items-start gap-10 md:gap-16">
+      <!-- Profile Column -->
+      <div class="flex-shrink-0 text-center md:text-left">
+        <div class="w-28 h-28 md:w-36 md:h-36 rounded-full bg-gradient-to-br from-primary-400 to-primary-600 p-1 shadow-xl shadow-primary-200/50 dark:shadow-primary-900/30 mx-auto md:mx-0">
           <div class="w-full h-full rounded-full bg-white dark:bg-slate-800 flex items-center justify-center">
             <span class="text-4xl md:text-5xl font-bold text-primary-600 dark:text-primary-400">陈</span>
           </div>
         </div>
-      </div>
-      <div class="text-center md:text-left">
-        <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 dark:text-white leading-tight">
+        <h1 class="mt-5 text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-white">
           Hi, I'm <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary-500 to-blue-600">陈小山 Hill Chen</span>
         </h1>
-        <p class="mt-4 text-lg md:text-xl text-slate-600 dark:text-slate-400 max-w-2xl">
+        <p class="mt-2 text-base md:text-lg text-slate-600 dark:text-slate-400 max-w-sm">
           小山的学习日记 HillChen's note book
         </p>
-        <div class="mt-6 flex items-center gap-4 justify-center md:justify-start">
-          <a href="https://github.com/hillchen-3" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-xl bg-white dark:bg-slate-800 shadow-sm border border-slate-200 dark:border-slate-700 flex items-center justify-center text-slate-500 dark:text-slate-400 hover:text-primary-600 dark:hover:text-primary-400 hover:border-primary-300 dark:hover:border-primary-600 transition-all" aria-label="github">
-            <i class="fab fa-github text-lg"></i>
+        <div class="mt-4 flex items-center gap-3 justify-center md:justify-start">
+          <a href="https://github.com/hillchen-3" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-xl bg-white dark:bg-slate-800 shadow-sm border border-slate-200 dark:border-slate-700 flex items-center justify-center text-slate-500 dark:text-slate-400 hover:text-primary-600 dark:hover:text-primary-400 hover:border-primary-300 dark:hover:border-primary-600 transition-all" aria-label="github">
+            <i class="fab fa-github"></i>
           </a>
-          <a href="https://xhslink.com/m/14i23XO5Xh" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-xl bg-white dark:bg-slate-800 shadow-sm border border-slate-200 dark:border-slate-700 flex items-center justify-center text-slate-500 dark:text-slate-400 hover:text-primary-600 dark:hover:text-primary-400 hover:border-primary-300 dark:hover:border-primary-600 transition-all" aria-label="rednote">
-            <i class="fas fa-pen-fancy text-lg"></i>
+          <a href="https://xhslink.com/m/14i23XO5Xh" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-xl bg-white dark:bg-slate-800 shadow-sm border border-slate-200 dark:border-slate-700 flex items-center justify-center text-slate-500 dark:text-slate-400 hover:text-primary-600 dark:hover:text-primary-400 hover:border-primary-300 dark:hover:border-primary-600 transition-all" aria-label="rednote">
+            <i class="fas fa-pen-fancy"></i>
           </a>
-          <a href="https://www.linkedin.com/in/hill-chen-062737421" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-xl bg-white dark:bg-slate-800 shadow-sm border border-slate-200 dark:border-slate-700 flex items-center justify-center text-slate-500 dark:text-slate-400 hover:text-primary-600 dark:hover:text-primary-400 hover:border-primary-300 dark:hover:border-primary-600 transition-all" aria-label="linkedin">
-            <i class="fab fa-linkedin text-lg"></i>
+          <a href="https://www.linkedin.com/in/hill-chen-062737421" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-xl bg-white dark:bg-slate-800 shadow-sm border border-slate-200 dark:border-slate-700 flex items-center justify-center text-slate-500 dark:text-slate-400 hover:text-primary-600 dark:hover:text-primary-400 hover:border-primary-300 dark:hover:border-primary-600 transition-all" aria-label="linkedin">
+            <i class="fab fa-linkedin"></i>
           </a>
         </div>
-        <div class="mt-8 flex items-center gap-4 justify-center md:justify-start">
-          <a href="https://hillchen-3.github.io/blog/archives.html" class="btn-primary">
+        <div class="mt-6 flex items-center gap-3 justify-center md:justify-start">
+          <a href="https://hillchen-3.github.io/blog/archives.html" class="btn-primary text-sm px-5 py-2.5">
             <i class="fas fa-book-open"></i>
             Browse Articles
           </a>
         </div>
       </div>
-    </div>
-  </div>
-  <div class="absolute -bottom-1 left-0 right-0 h-16 bg-gradient-to-t from-white dark:from-slate-900 to-transparent"></div>
-</section>
-
-<!-- Article Marquee / 弹幕 -->
-<section class="relative overflow-hidden bg-gradient-to-r from-primary-600/5 via-primary-500/10 to-primary-600/5 dark:from-primary-400/5 dark:via-primary-300/10 dark:to-primary-400/5 border-y border-primary-200/30 dark:border-primary-700/30">
-  <div class="relative z-10 flex items-center gap-3 px-4 sm:px-6 lg:px-8 py-3">
-    <span class="flex-shrink-0 inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-primary-600 dark:text-primary-400 bg-white/80 dark:bg-slate-900/80 px-3 py-1.5 rounded-full shadow-sm">
-      <i class="fas fa-arrow-right text-[10px]"></i>
-      Latest
-    </span>
-    <div class="marquee-container overflow-hidden flex-1">
-      <div class="marquee-track flex gap-12">
-        <a href="https://hillchen-3.github.io/blog/2025/12/getting-started-with-fastapi/" class="flex-shrink-0 text-sm text-slate-600 dark:text-slate-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors no-underline whitespace-nowrap marquee-item">
-          <span class="font-medium">Getting Started with FastAPI: A Modern Python Web Framework</span>
-          <span class="text-xs text-slate-400 dark:text-slate-500 ml-2 hidden sm:inline">2025-12-15</span>
-        </a>
-        <a href="https://hillchen-3.github.io/blog/2025/12/understanding-tailwind-css/" class="flex-shrink-0 text-sm text-slate-600 dark:text-slate-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors no-underline whitespace-nowrap marquee-item">
-          <span class="font-medium">Understanding Tailwind CSS: Utility-First Styling</span>
-          <span class="text-xs text-slate-400 dark:text-slate-500 ml-2 hidden sm:inline">2025-12-10</span>
-        </a>
-        <a href="https://hillchen-3.github.io/blog/2025/12/django-rest-framework-guide/" class="flex-shrink-0 text-sm text-slate-600 dark:text-slate-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors no-underline whitespace-nowrap marquee-item">
-          <span class="font-medium">Building RESTful APIs with Django REST Framework</span>
-          <span class="text-xs text-slate-400 dark:text-slate-500 ml-2 hidden sm:inline">2025-12-05</span>
-        </a>
-        <a href="https://hillchen-3.github.io/blog/2025/12/getting-started-with-fastapi/" class="flex-shrink-0 text-sm text-slate-600 dark:text-slate-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors no-underline whitespace-nowrap marquee-item" aria-hidden="true">
-          <span class="font-medium">Getting Started with FastAPI: A Modern Python Web Framework</span>
-          <span class="text-xs text-slate-400 dark:text-slate-500 ml-2 hidden sm:inline">2025-12-15</span>
-        </a>
-        <a href="https://hillchen-3.github.io/blog/2025/12/understanding-tailwind-css/" class="flex-shrink-0 text-sm text-slate-600 dark:text-slate-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors no-underline whitespace-nowrap marquee-item" aria-hidden="true">
-          <span class="font-medium">Understanding Tailwind CSS: Utility-First Styling</span>
-          <span class="text-xs text-slate-400 dark:text-slate-500 ml-2 hidden sm:inline">2025-12-10</span>
-        </a>
-        <a href="https://hillchen-3.github.io/blog/2025/12/django-rest-framework-guide/" class="flex-shrink-0 text-sm text-slate-600 dark:text-slate-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors no-underline whitespace-nowrap marquee-item" aria-hidden="true">
-          <span class="font-medium">Building RESTful APIs with Django REST Framework</span>
-          <span class="text-xs text-slate-400 dark:text-slate-500 ml-2 hidden sm:inline">2025-12-05</span>
-        </a>
+      <!-- Carousel Column -->
+      <div class="flex-1 w-full max-w-md mx-auto md:mx-0">
+        <div class="relative">
+          <div class="carousel-slide  transition-all duration-700 ease-in-out" data-index="0">
+            <a href="https://hillchen-3.github.io/blog/2025/12/getting-started-with-fastapi/" class="block text-center no-underline">
+              <div class="w-56 h-56 md:w-64 md:h-64 mx-auto rounded-full overflow-hidden shadow-2xl shadow-primary-200/60 dark:shadow-primary-900/40 ring-4 ring-white/50 dark:ring-slate-700/50">
+                <img src="https://hillchen-3.github.io/blog/images/fastapi-cover.jpg" alt="Getting Started with FastAPI: A Modern Python Web Framework" class="w-full h-full object-cover">
+              </div>
+              <h2 class="mt-6 text-xl md:text-2xl font-bold text-slate-900 dark:text-white">Getting Started with FastAPI: A Modern Python Web Framework</h2>
+              <div class="mt-3 flex items-center justify-center gap-3">
+                <span class="text-xs font-medium text-primary-600 dark:text-primary-400 bg-primary-50 dark:bg-primary-900/30 px-3 py-1 rounded-full">Python</span>
+                <time class="text-xs text-slate-500 dark:text-slate-400">2025-12-15</time>
+              </div>
+              <p class="mt-4 text-sm text-slate-500 dark:text-slate-400 line-clamp-2 max-w-sm mx-auto">FastAPI is a modern, fast (high-performance) web framework for building APIs with Python 3.7+...</p>
+            </a>
+          </div>
+          <div class="carousel-slide opacity-0 pointer-events-none absolute inset-0 transition-all duration-700 ease-in-out" data-index="1">
+            <a href="https://hillchen-3.github.io/blog/2025/12/understanding-tailwind-css/" class="block text-center no-underline">
+              <div class="w-56 h-56 md:w-64 md:h-64 mx-auto rounded-full overflow-hidden shadow-2xl shadow-primary-200/60 dark:shadow-primary-900/40 ring-4 ring-white/50 dark:ring-slate-700/50">
+                <img src="https://hillchen-3.github.io/blog/images/tailwind-cover.jpg" alt="Understanding Tailwind CSS: Utility-First Styling" class="w-full h-full object-cover">
+              </div>
+              <h2 class="mt-6 text-xl md:text-2xl font-bold text-slate-900 dark:text-white">Understanding Tailwind CSS: Utility-First Styling</h2>
+              <div class="mt-3 flex items-center justify-center gap-3">
+                <span class="text-xs font-medium text-primary-600 dark:text-primary-400 bg-primary-50 dark:bg-primary-900/30 px-3 py-1 rounded-full">CSS</span>
+                <time class="text-xs text-slate-500 dark:text-slate-400">2025-12-10</time>
+              </div>
+              <p class="mt-4 text-sm text-slate-500 dark:text-slate-400 line-clamp-2 max-w-sm mx-auto">Tailwind CSS is a utility-first CSS framework that has revolutionized the way developers style...</p>
+            </a>
+          </div>
+          <div class="carousel-slide opacity-0 pointer-events-none absolute inset-0 transition-all duration-700 ease-in-out" data-index="2">
+            <a href="https://hillchen-3.github.io/blog/2025/12/django-rest-framework-guide/" class="block text-center no-underline">
+              <div class="w-56 h-56 md:w-64 md:h-64 mx-auto rounded-full overflow-hidden shadow-2xl shadow-primary-200/60 dark:shadow-primary-900/40 ring-4 ring-white/50 dark:ring-slate-700/50">
+                <img src="https://hillchen-3.github.io/blog/images/drf-cover.jpg" alt="Building RESTful APIs with Django REST Framework" class="w-full h-full object-cover">
+              </div>
+              <h2 class="mt-6 text-xl md:text-2xl font-bold text-slate-900 dark:text-white">Building RESTful APIs with Django REST Framework</h2>
+              <div class="mt-3 flex items-center justify-center gap-3">
+                <span class="text-xs font-medium text-primary-600 dark:text-primary-400 bg-primary-50 dark:bg-primary-900/30 px-3 py-1 rounded-full">Python</span>
+                <time class="text-xs text-slate-500 dark:text-slate-400">2025-12-05</time>
+              </div>
+              <p class="mt-4 text-sm text-slate-500 dark:text-slate-400 line-clamp-2 max-w-sm mx-auto">Django REST Framework (DRF) is a powerful and flexible toolkit for building Web APIs in Django....</p>
+            </a>
+          </div>
+        </div>
+        <!-- Carousel Controls -->
+        <div class="mt-8 flex items-center justify-center gap-3">
+          <button class="carousel-dot w-2.5 h-2.5 rounded-full transition-all duration-300 bg-primary-500 w-6" data-index="0" aria-label="Slide 1"></button>
+          <button class="carousel-dot w-2.5 h-2.5 rounded-full transition-all duration-300 bg-slate-300 dark:bg-slate-600" data-index="1" aria-label="Slide 2"></button>
+          <button class="carousel-dot w-2.5 h-2.5 rounded-full transition-all duration-300 bg-slate-300 dark:bg-slate-600" data-index="2" aria-label="Slide 3"></button>
+        </div>
       </div>
     </div>
   </div>
@@ -369,6 +365,7 @@
   </footer>
 
   <script>
+    // Dark mode toggle
     const darkToggle = document.getElementById('darkToggle');
     const html = document.documentElement;
     if (localStorage.getItem('dark') === 'true' || (!localStorage.getItem('dark') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
@@ -378,6 +375,45 @@
       html.classList.toggle('dark');
       localStorage.setItem('dark', html.classList.contains('dark'));
     });
+
+    // Hero carousel
+    (function() {
+      const slides = document.querySelectorAll('.carousel-slide');
+      const dots = document.querySelectorAll('.carousel-dot');
+      if (!slides.length) return;
+      let current = 0;
+      let timer;
+      function goTo(index) {
+        slides.forEach((el, i) => {
+          if (i === index) {
+            el.classList.remove('opacity-0', 'pointer-events-none', 'absolute', 'inset-0');
+          } else {
+            el.classList.add('opacity-0', 'pointer-events-none', 'absolute', 'inset-0');
+          }
+        });
+        dots.forEach((el, i) => {
+          if (i === index) {
+            el.classList.add('bg-primary-500', 'w-6');
+            el.classList.remove('bg-slate-300', 'dark:bg-slate-600');
+          } else {
+            el.classList.remove('bg-primary-500', 'w-6');
+            el.classList.add('bg-slate-300', 'dark:bg-slate-600');
+          }
+        });
+        current = index;
+      }
+      function next() { goTo((current + 1) % slides.length); }
+      function startAuto() { timer = setInterval(next, 4000); }
+      function stopAuto() { clearInterval(timer); }
+      dots.forEach(dot => {
+        dot.addEventListener('click', () => {
+          stopAuto();
+          goTo(parseInt(dot.dataset.index));
+          startAuto();
+        });
+      });
+      startAuto();
+    })();
   </script>
 </body>
 </html>
