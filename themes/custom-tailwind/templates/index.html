@@ -2,9 +2,51 @@
 {% block title %}{{ SITENAME }}{% endblock %}
 {% block content %}
 
+{% macro cuboid(class) -%}
+<div class="cuboid {{ class }}">{% for _ in range(6) %}<div class="cuboid__side"></div>{% endfor %}</div>
+{%- endmacro %}
+
 <!-- Hero / Photo Wall -->
-<section class="relative min-h-screen flex items-center overflow-hidden bg-gradient-to-br from-primary-50 via-white to-blue-50 dark:from-slate-900 dark:via-slate-900 dark:to-primary-950">
-  <div class="relative w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-0">
+<section class="relative min-h-screen flex items-center overflow-hidden">
+  <div class="scene" aria-hidden="true">
+    <div class="scene-inner">
+      {% for c in ['one','two','three'] %}
+      <div class="cloud cloud--{{ c }}">
+        <div class="cloud__shift"><div class="cloud__body">
+          {% for _ in range(3) %}<div>{{ cuboid('cuboid--cloud') }}</div>{% endfor %}
+        </div></div>
+      </div>
+      {% endfor %}
+      <div class="plane__floater">
+        <div class="plane__looper">
+          <div class="plane">
+            <div class="plane__wheels">
+              <div class="plane__axle">{{ cuboid('cuboid--axle') }}</div>
+              <div class="plane__wheel plane__wheel--left">{{ cuboid('cuboid--wheel-left') }}</div>
+              <div class="plane__wheel plane__wheel--right">{{ cuboid('cuboid--wheel-right') }}</div>
+            </div>
+            <div class="plane__body">{{ cuboid('cuboid--body') }}</div>
+            <div class="plane__nose">{{ cuboid('cuboid--nose') }}</div>
+            <div class="plane__propellor"><div class="propellor"></div></div>
+            <div class="plane__screen">{{ cuboid('cuboid--screen') }}</div>
+            <div class="plane__wings wings">
+              <div class="wings__top">{{ cuboid('cuboid--wings-top') }}</div>
+              <div class="wings__ghost">{{ cuboid('cuboid--wings-ghost') }}</div>
+              <div class="wings__bottom">{{ cuboid('cuboid--wings-bottom') }}</div>
+              <div class="wings__strobe wings__strobe--left">{{ cuboid('cuboid--strobe') }}</div>
+              <div class="wings__strobe wings__strobe--right">{{ cuboid('cuboid--strobe') }}</div>
+            </div>
+            <div class="plane__tail">{{ cuboid('cuboid--tail') }}</div>
+            <div class="plane__stabilizer plane__stabilizer--horizontal">{{ cuboid('cuboid--horizontal-stabilizer') }}</div>
+            <div class="plane__stabilizer plane__stabilizer--vertical">{{ cuboid('cuboid--vertical-stabilizer') }}</div>
+            <div class="plane__beacon">{{ cuboid('cuboid--beacon') }}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="scene-backdrop"></div>
+  <div class="relative w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-0" style="z-index:2">
     <div class="flex flex-col md:flex-row items-center md:items-start gap-10 md:gap-16">
       <!-- Profile Column -->
       <div class="flex-shrink-0 text-center md:text-left">
