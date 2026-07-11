@@ -8,6 +8,19 @@
   <link rel="stylesheet" href="https://hillchen-3.github.io/blog/theme/css/main.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="alternate" type="application/atom+xml" title="Hill's Blog - Atom Feed" href="feeds/all.atom.xml">
+  <style>
+    @keyframes marquee {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .marquee-track {
+      animation: marquee 30s linear infinite;
+      width: max-content;
+    }
+    .marquee-track:hover {
+      animation-play-state: paused;
+    }
+  </style>
 </head>
 <body class="flex flex-col min-h-screen">
   <header class="sticky top-0 z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-lg border-b border-slate-200/50 dark:border-slate-700/50">
@@ -53,7 +66,7 @@
             <i class="fab fa-github text-lg"></i>
           </a>
           <a href="https://xhslink.com/m/14i23XO5Xh" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-xl bg-white dark:bg-slate-800 shadow-sm border border-slate-200 dark:border-slate-700 flex items-center justify-center text-slate-500 dark:text-slate-400 hover:text-primary-600 dark:hover:text-primary-400 hover:border-primary-300 dark:hover:border-primary-600 transition-all" aria-label="rednote">
-            <i class="fab fa-pen-fancy text-lg"></i>
+            <i class="fas fa-pen-fancy text-lg"></i>
           </a>
           <a href="https://www.linkedin.com/in/hill-chen-062737421" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-xl bg-white dark:bg-slate-800 shadow-sm border border-slate-200 dark:border-slate-700 flex items-center justify-center text-slate-500 dark:text-slate-400 hover:text-primary-600 dark:hover:text-primary-400 hover:border-primary-300 dark:hover:border-primary-600 transition-all" aria-label="linkedin">
             <i class="fab fa-linkedin text-lg"></i>
@@ -69,6 +82,44 @@
     </div>
   </div>
   <div class="absolute -bottom-1 left-0 right-0 h-16 bg-gradient-to-t from-white dark:from-slate-900 to-transparent"></div>
+</section>
+
+<!-- Article Marquee / 弹幕 -->
+<section class="relative overflow-hidden bg-gradient-to-r from-primary-600/5 via-primary-500/10 to-primary-600/5 dark:from-primary-400/5 dark:via-primary-300/10 dark:to-primary-400/5 border-y border-primary-200/30 dark:border-primary-700/30">
+  <div class="relative z-10 flex items-center gap-3 px-4 sm:px-6 lg:px-8 py-3">
+    <span class="flex-shrink-0 inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-primary-600 dark:text-primary-400 bg-white/80 dark:bg-slate-900/80 px-3 py-1.5 rounded-full shadow-sm">
+      <i class="fas fa-arrow-right text-[10px]"></i>
+      Latest
+    </span>
+    <div class="marquee-container overflow-hidden flex-1">
+      <div class="marquee-track flex gap-12">
+        <a href="https://hillchen-3.github.io/blog/2025/12/getting-started-with-fastapi/" class="flex-shrink-0 text-sm text-slate-600 dark:text-slate-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors no-underline whitespace-nowrap marquee-item">
+          <span class="font-medium">Getting Started with FastAPI: A Modern Python Web Framework</span>
+          <span class="text-xs text-slate-400 dark:text-slate-500 ml-2 hidden sm:inline">2025-12-15</span>
+        </a>
+        <a href="https://hillchen-3.github.io/blog/2025/12/understanding-tailwind-css/" class="flex-shrink-0 text-sm text-slate-600 dark:text-slate-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors no-underline whitespace-nowrap marquee-item">
+          <span class="font-medium">Understanding Tailwind CSS: Utility-First Styling</span>
+          <span class="text-xs text-slate-400 dark:text-slate-500 ml-2 hidden sm:inline">2025-12-10</span>
+        </a>
+        <a href="https://hillchen-3.github.io/blog/2025/12/django-rest-framework-guide/" class="flex-shrink-0 text-sm text-slate-600 dark:text-slate-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors no-underline whitespace-nowrap marquee-item">
+          <span class="font-medium">Building RESTful APIs with Django REST Framework</span>
+          <span class="text-xs text-slate-400 dark:text-slate-500 ml-2 hidden sm:inline">2025-12-05</span>
+        </a>
+        <a href="https://hillchen-3.github.io/blog/2025/12/getting-started-with-fastapi/" class="flex-shrink-0 text-sm text-slate-600 dark:text-slate-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors no-underline whitespace-nowrap marquee-item" aria-hidden="true">
+          <span class="font-medium">Getting Started with FastAPI: A Modern Python Web Framework</span>
+          <span class="text-xs text-slate-400 dark:text-slate-500 ml-2 hidden sm:inline">2025-12-15</span>
+        </a>
+        <a href="https://hillchen-3.github.io/blog/2025/12/understanding-tailwind-css/" class="flex-shrink-0 text-sm text-slate-600 dark:text-slate-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors no-underline whitespace-nowrap marquee-item" aria-hidden="true">
+          <span class="font-medium">Understanding Tailwind CSS: Utility-First Styling</span>
+          <span class="text-xs text-slate-400 dark:text-slate-500 ml-2 hidden sm:inline">2025-12-10</span>
+        </a>
+        <a href="https://hillchen-3.github.io/blog/2025/12/django-rest-framework-guide/" class="flex-shrink-0 text-sm text-slate-600 dark:text-slate-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors no-underline whitespace-nowrap marquee-item" aria-hidden="true">
+          <span class="font-medium">Building RESTful APIs with Django REST Framework</span>
+          <span class="text-xs text-slate-400 dark:text-slate-500 ml-2 hidden sm:inline">2025-12-05</span>
+        </a>
+      </div>
+    </div>
+  </div>
 </section>
 
 <!-- Tech Stack -->
@@ -304,7 +355,7 @@
             <i class="fab fa-github"></i>
           </a>
           <a href="https://xhslink.com/m/14i23XO5Xh" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors text-lg" aria-label="rednote">
-            <i class="fab fa-pen-fancy"></i>
+            <i class="fas fa-pen-fancy"></i>
           </a>
           <a href="https://www.linkedin.com/in/hill-chen-062737421" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors text-lg" aria-label="linkedin">
             <i class="fab fa-linkedin"></i>

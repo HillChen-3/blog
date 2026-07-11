@@ -8,6 +8,19 @@
   <link rel="stylesheet" href="https://hillchen-3.github.io/blog/theme/css/main.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="alternate" type="application/atom+xml" title="Hill's Blog - Atom Feed" href="feeds/all.atom.xml">
+  <style>
+    @keyframes marquee {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .marquee-track {
+      animation: marquee 30s linear infinite;
+      width: max-content;
+    }
+    .marquee-track:hover {
+      animation-play-state: paused;
+    }
+  </style>
 </head>
 <body class="flex flex-col min-h-screen">
   <header class="sticky top-0 z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-lg border-b border-slate-200/50 dark:border-slate-700/50">
@@ -136,7 +149,7 @@
             <i class="fab fa-github"></i>
           </a>
           <a href="https://xhslink.com/m/14i23XO5Xh" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors text-lg" aria-label="rednote">
-            <i class="fab fa-pen-fancy"></i>
+            <i class="fas fa-pen-fancy"></i>
           </a>
           <a href="https://www.linkedin.com/in/hill-chen-062737421" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors text-lg" aria-label="linkedin">
             <i class="fab fa-linkedin"></i>
