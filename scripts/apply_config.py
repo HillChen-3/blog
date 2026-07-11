@@ -25,13 +25,13 @@ def parse_template(filepath):
 
     # 社交链接
     ICON_MAP = {
-        'github': 'github', 'twitter': 'twitter', 'linkedin': 'linkedin',
-        'rednote': 'pen-fancy', 'csdn': 'link', 'juejin': 'link',
-        'zhihu': 'link', 'blog': 'blog', 'website': 'globe',
-        'email': 'envelope', 'facebook': 'facebook', 'youtube': 'youtube',
-        'instagram': 'instagram', 'stackoverflow': 'stack-overflow',
-        'medium': 'medium', 'devto': 'dev', 'bilibili': 'link',
-        'weibo': 'link', 'segmentfault': 'link',
+        'github': ('github', 'fab'), 'twitter': ('twitter', 'fab'), 'linkedin': ('linkedin', 'fab'),
+        'rednote': ('pen-fancy', 'fas'), 'csdn': ('link', 'fas'), 'juejin': ('link', 'fas'),
+        'zhihu': ('link', 'fas'), 'blog': ('blog', 'fas'), 'website': ('globe', 'fas'),
+        'email': ('envelope', 'fas'), 'facebook': ('facebook', 'fab'), 'youtube': ('youtube', 'fab'),
+        'instagram': ('instagram', 'fab'), 'stackoverflow': ('stack-overflow', 'fab'),
+        'medium': ('medium', 'fab'), 'devto': ('dev', 'fab'), 'bilibili': ('link', 'fas'),
+        'weibo': ('link', 'fas'), 'segmentfault': ('link', 'fas'),
     }
     social = []
     social_section = re.search(r'## 社交链接\n(.*?)(?=\n##)', content, re.DOTALL)
@@ -41,9 +41,9 @@ def parse_template(filepath):
             if m:
                 name = m.group(1).lower()
                 url = m.group(2).strip()
-                icon = ICON_MAP.get(name, 'link')
+                icon, prefix = ICON_MAP.get(name, ('link', 'fas'))
                 if url:
-                    social.append((name, url, icon))
+                    social.append((name, url, icon, prefix))
     config['SOCIAL'] = social
 
     # 关于我
@@ -73,7 +73,7 @@ def generate_site_config(config):
     # 社交链接
     social = config.get('SOCIAL', [])
     if social:
-        items = ', '.join(f"({repr(name)}, {repr(url)}, {repr(icon)})" for name, url, icon in social)
+        items = ', '.join(f"({repr(name)}, {repr(url)}, {repr(icon)}, {repr(prefix)})" for name, url, icon, prefix in social)
         lines.append(f"SOCIAL = ({items},)")
     else:
         lines.append('SOCIAL = ()')
