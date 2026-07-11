@@ -1,0 +1,49 @@
+name: Deploy to GitHub Pages
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+permissions:
+  contents: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+
+      - run: pip install -r requirements.txt
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: npm
+
+      - run: npm ci
+
+      - name: Build Tailwind CSS
+        run: npx tailwindcss -i themes/custom-tailwind/static/css/tailwind.css -o themes/custom-tailwind/static/css/main.css --minify
+
+      - name: Build Pelican site
+        run: pelican content -s publishconf.py
+        env:
+          # ⚠️ 必填: 在 GitHub 仓库 Settings → Secrets and variables → Actions → Variables 添加:
+          #   变量名: SITEURL, 值: https://<你的用户名>.github.io/<仓库名>/ (末尾有 /)
+          #   用户站点 (<用户名>.github.io) 则填: https://<你的用户名>.github.io/
+          SITEURL: ${{ vars.SITEURL }}
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./output
+          cname: ${{ vars.CNAME || '' }}

@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block title %}{{ tag }} — {{ SITENAME }}{% endblock %}
+
+{% block content %}
+<section class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
+  <header class="mb-10">
+    <div class="flex items-center gap-3">
+      <h1 class="text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-white">#{{ tag }}</h1>
+      <span class="tag text-base">{{ articles|length }} articles</span>
+    </div>
+  </header>
+  <div class="space-y-4">
+    {% for article in articles %}
+    <article class="card p-5 flex flex-col sm:flex-row sm:items-center gap-3">
+      <time class="text-sm text-slate-400 whitespace-nowrap" datetime="{{ article.date.isoformat() }}">
+        {{ article.locale_date }}
+      </time>
+      <h2 class="text-lg font-semibold text-slate-900 dark:text-white flex-1">
+        <a href="{{ SITEURL }}/{{ article.url }}" class="no-underline hover:text-primary-600 dark:hover:text-primary-400">{{ article.title }}</a>
+      </h2>
+      {% if article.category %}
+      <a href="{{ SITEURL }}/{{ article.category.url }}" class="tag text-xs">{{ article.category }}</a>
+      {% endif %}
+    </article>
+    {% endfor %}
+  </div>
+</section>
+{% endblock %}

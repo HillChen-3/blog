@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% block title %}{{ article.title }} — {{ SITENAME }}{% endblock %}
+
+{% block content %}
+<article class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
+  <header class="mb-10">
+    <div class="flex items-center gap-3 mb-4 text-sm">
+      {% if article.category %}
+      <a href="{{ SITEURL }}/{{ article.category.url }}" class="tag">{{ article.category }}</a>
+      {% endif %}
+      <time class="text-slate-400" datetime="{{ article.date.isoformat() }}">
+        <i class="far fa-calendar-alt mr-1"></i>{{ article.locale_date }}
+      </time>
+      {% if article.modified %}
+      <span class="text-slate-400">·</span>
+      <time class="text-slate-400" datetime="{{ article.modified.isoformat() }}">
+        <i class="far fa-edit mr-1"></i>Updated {{ article.locale_modified }}
+      </time>
+      {% endif %}
+    </div>
+    <h1 class="text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-white leading-tight">{{ article.title }}</h1>
+    {% if article.tags %}
+    <div class="flex flex-wrap gap-2 mt-4">
+      {% for tag in article.tags %}
+      <a href="{{ SITEURL }}/{{ tag.url }}" class="tag">#{{ tag }}</a>
+      {% endfor %}
+    </div>
+    {% endif %}
+  </header>
+
+  {% if article.cover %}
+  <div class="mb-10 -mx-4 sm:-mx-6 lg:-mx-8">
+    <img src="{{ SITEURL }}/{{ article.cover }}" alt="{{ article.title }}" class="w-full aspect-video object-cover rounded-none sm:rounded-2xl">
+  </div>
+  {% endif %}
+
+  <div class="prose prose-lg dark:prose-invert max-w-none">
+    {{ article.content }}
+  </div>
+
+  <nav class="mt-12 pt-8 border-t border-slate-200 dark:border-slate-700">
+    <div class="flex flex-col sm:flex-row justify-between gap-4">
+      <div>
+        {% if article.prev_article %}
+        <span class="text-xs text-slate-400">Previous Article</span>
+        <a href="{{ SITEURL }}/{{ article.prev_article.url }}" class="block text-sm font-medium hover:text-primary-600 dark:hover:text-primary-400">{{ article.prev_article.title }}</a>
+        {% endif %}
+      </div>
+      <div class="text-right">
+        {% if article.next_article %}
+        <span class="text-xs text-slate-400">Next Article</span>
+        <a href="{{ SITEURL }}/{{ article.next_article.url }}" class="block text-sm font-medium hover:text-primary-600 dark:hover:text-primary-400">{{ article.next_article.title }}</a>
+        {% endif %}
+      </div>
+    </div>
+  </nav>
+</article>
+{% endblock %}

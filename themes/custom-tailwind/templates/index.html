@@ -1,0 +1,215 @@
+{% extends "base.html" %}
+{% block title %}{{ SITENAME }}{% endblock %}
+{% block content %}
+
+<!-- Hero Section -->
+<section class="relative overflow-hidden">
+  <div class="absolute inset-0 bg-gradient-to-br from-primary-50 via-white to-blue-50 dark:from-slate-900 dark:via-slate-900 dark:to-primary-950"></div>
+  <div class="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32">
+    <div class="flex flex-col md:flex-row items-center gap-10">
+      <div class="flex-shrink-0">
+        <div class="w-28 h-28 md:w-36 md:h-36 rounded-full bg-gradient-to-br from-primary-400 to-primary-600 p-1 shadow-xl shadow-primary-200/50 dark:shadow-primary-900/30">
+          <div class="w-full h-full rounded-full bg-white dark:bg-slate-800 flex items-center justify-center">
+            <span class="text-4xl md:text-5xl font-bold text-primary-600 dark:text-primary-400">{{ AUTHOR_LOGO|default('B') }}</span>
+          </div>
+        </div>
+      </div>
+      <div class="text-center md:text-left">
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 dark:text-white leading-tight">
+          Hi, I'm <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary-500 to-blue-600">{{ AUTHOR }}</span>
+        </h1>
+        <p class="mt-4 text-lg md:text-xl text-slate-600 dark:text-slate-400 max-w-2xl">
+          {{ SITEDESCRIPTION|default('A personal blog about coding and technology') }}
+        </p>
+        <div class="mt-6 flex items-center gap-4 justify-center md:justify-start">
+          {% if SOCIAL %}
+          {% for name, link in SOCIAL %}
+          <a href="{{ link }}" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-xl bg-white dark:bg-slate-800 shadow-sm border border-slate-200 dark:border-slate-700 flex items-center justify-center text-slate-500 dark:text-slate-400 hover:text-primary-600 dark:hover:text-primary-400 hover:border-primary-300 dark:hover:border-primary-600 transition-all" aria-label="{{ name }}">
+            <i class="fab fa-{{ name }} text-lg"></i>
+          </a>
+          {% endfor %}
+          {% endif %}
+        </div>
+        <div class="mt-8 flex items-center gap-4 justify-center md:justify-start">
+          <a href="{{ SITEURL }}/archives.html" class="btn-primary">
+            <i class="fas fa-book-open"></i>
+            Browse Articles
+          </a>
+          {% if ABOUT_PAGE %}
+          <a href="{{ SITEURL }}/{{ ABOUT_PAGE }}" class="btn-outline">
+            <i class="fas fa-user"></i>
+            About Me
+          </a>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="absolute -bottom-1 left-0 right-0 h-16 bg-gradient-to-t from-white dark:from-slate-900 to-transparent"></div>
+</section>
+
+<!-- Tech Stack -->
+{% if TECH_STACK %}
+<section class="py-12 bg-white dark:bg-slate-900">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex flex-wrap items-center justify-center gap-3">
+      {% for tech in TECH_STACK %}
+      <span class="px-4 py-2 text-sm font-medium rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 border border-slate-200 dark:border-slate-700">
+        {{ tech }}
+      </span>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
+
+<!-- About Section -->
+{% if ABOUT_ME %}
+<section class="py-16 md:py-20 bg-slate-50/50 dark:bg-slate-800/30">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-12">
+      <h2 class="section-title">About Me</h2>
+      <p class="section-subtitle">A little bit about myself</p>
+    </div>
+    <div class="max-w-3xl mx-auto">
+      <div class="card p-8 md:p-10">
+        <p class="text-slate-600 dark:text-slate-400 leading-relaxed whitespace-pre-line">{{ ABOUT_ME }}</p>
+      </div>
+    </div>
+  </div>
+</section>
+{% endif %}
+
+<!-- Latest Articles -->
+<section class="py-16 md:py-20 bg-white dark:bg-slate-900">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-12">
+      <h2 class="section-title">Latest Articles</h2>
+      <p class="section-subtitle">Thoughts, tutorials, and notes</p>
+    </div>
+    {% if articles %}
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {% for article in articles[:6] %}
+      <article class="card overflow-hidden group flex flex-col">
+        {% if article.cover %}
+        <div class="aspect-video overflow-hidden">
+          <img src="{{ SITEURL }}/{{ article.cover }}" alt="{{ article.title }}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+        </div>
+        {% else %}
+        <div class="aspect-video bg-gradient-to-br from-primary-100 to-blue-100 dark:from-primary-900/20 dark:to-blue-900/20 flex items-center justify-center">
+          <i class="fas fa-file-alt text-4xl text-primary-300 dark:text-primary-700"></i>
+        </div>
+        {% endif %}
+        <div class="p-5 flex-1 flex flex-col">
+          <div class="flex items-center gap-2 mb-3">
+            {% if article.category %}
+            <span class="text-xs font-medium text-primary-600 dark:text-primary-400 bg-primary-50 dark:bg-primary-900/30 px-2.5 py-1 rounded-full">{{ article.category }}</span>
+            {% endif %}
+            <time class="text-xs text-slate-400" datetime="{{ article.date.isoformat() }}">
+              <i class="far fa-calendar-alt mr-1"></i>{{ article.locale_date }}
+            </time>
+          </div>
+          <h3 class="text-lg font-semibold text-slate-900 dark:text-white mb-2 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
+            <a href="{{ SITEURL }}/{{ article.url }}" class="no-underline">{{ article.title }}</a>
+          </h3>
+          {% if article.summary %}
+          <p class="text-sm text-slate-500 dark:text-slate-400 line-clamp-3 flex-1">{{ article.summary|striptags|truncate(120) }}</p>
+          {% endif %}
+          <div class="mt-4 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+              {% if article.tags %}
+              {% for tag in article.tags[:2] %}
+              <a href="{{ SITEURL }}/{{ tag.url }}" class="tag text-xs">{{ tag }}</a>
+              {% endfor %}
+              {% endif %}
+            </div>
+            <a href="{{ SITEURL }}/{{ article.url }}" class="text-sm font-medium text-primary-600 dark:text-primary-400 hover:underline">
+              Read More <i class="fas fa-arrow-right ml-1 text-xs"></i>
+            </a>
+          </div>
+        </div>
+      </article>
+      {% endfor %}
+    </div>
+    {% if articles|length > 6 %}
+    <div class="text-center mt-10">
+      <a href="{{ SITEURL }}/archives.html" class="btn-outline">
+        <i class="fas fa-list"></i>
+        View All Articles
+      </a>
+    </div>
+    {% endif %}
+    {% else %}
+    <div class="text-center py-16">
+      <div class="text-6xl mb-4 text-slate-300 dark:text-slate-600">
+        <i class="far fa-file-alt"></i>
+      </div>
+      <p class="text-lg text-slate-500 dark:text-slate-400">No articles published yet. Stay tuned!</p>
+    </div>
+    {% endif %}
+  </div>
+</section>
+
+<!-- Categories & Tags -->
+<section class="py-16 md:py-20 bg-slate-50/50 dark:bg-slate-800/30">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-12">
+      <h2 class="section-title">Topics</h2>
+      <p class="section-subtitle">Explore by category or tag</p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <!-- Categories -->
+      <div class="card p-6 md:p-8">
+        <h3 class="text-lg font-semibold text-slate-900 dark:text-white mb-4 flex items-center gap-2">
+          <i class="fas fa-folder-open text-primary-500"></i>
+          Categories
+        </h3>
+        <div class="space-y-3">
+          {% if categories %}
+          {% for cat, articles in categories %}
+          <a href="{{ SITEURL }}/{{ cat.url }}" class="flex items-center justify-between p-3 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors group">
+            <span class="text-sm font-medium text-slate-700 dark:text-slate-300 group-hover:text-primary-600 dark:group-hover:text-primary-400">{{ cat }}</span>
+            <span class="text-xs font-medium text-slate-400 bg-slate-100 dark:bg-slate-800 px-2.5 py-1 rounded-full">{{ articles|length }}</span>
+          </a>
+          {% endfor %}
+          {% endif %}
+        </div>
+      </div>
+      <!-- Tags Cloud -->
+      <div class="card p-6 md:p-8">
+        <h3 class="text-lg font-semibold text-slate-900 dark:text-white mb-4 flex items-center gap-2">
+          <i class="fas fa-tags text-primary-500"></i>
+          Tags
+        </h3>
+        <div class="flex flex-wrap gap-2">
+          {% if tags %}
+          {% for tag, articles in tags %}
+          <a href="{{ SITEURL }}/{{ tag.url }}" class="tag">{{ tag }} ({{ articles|length }})</a>
+          {% endfor %}
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Newsletter / CTA -->
+<section class="py-16 md:py-20 bg-white dark:bg-slate-900">
+  <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <h2 class="section-title">Stay Updated</h2>
+    <p class="section-subtitle">Follow along for more articles about coding and technology</p>
+    <div class="flex items-center justify-center gap-4">
+      <a href="{{ SITEURL }}/archives.html" class="btn-primary">
+        <i class="fas fa-book-open"></i>
+        Browse All Articles
+      </a>
+      {% if FEED_ALL_ATOM %}
+      <a href="{{ FEED_ALL_ATOM }}" class="btn-outline">
+        <i class="fas fa-rss"></i>
+        RSS Feed
+      </a>
+      {% endif %}
+    </div>
+  </div>
+</section>
+{% endblock %}
